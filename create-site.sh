@@ -37,10 +37,10 @@ BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
 
 echo "$contents" >> /etc/apache2/sites-available/$1.conf
 
-certbot --apache certonly
-
 chown www-data:www-data /var/www/html/$3 -R
 
 a2ensite $1.conf
 
 service apache2 restart
+
+certbot --apache certonly
